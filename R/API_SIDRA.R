@@ -20,21 +20,21 @@ API_SIDRA <- function (tabela, classificador = SIDRA_classificacao(tabela),
           periodo = "all", variavel = "allxp",
           inicio, fim)
 {
-# retirada checagem de inconsistências para teste
-    # if (length(tabela) > 1) {
-  #   stop("Solicite os dados de uma tabela por vez. Para mais de uma use mapply()",
-  #        call. = FALSE)
-  # }
+  if (length(tabela) > 1) {
+    stop("Solicite os dados de uma tabela por vez. Para mais de uma use mapply()",
+         call. = FALSE)
+  }
+  # retirada checagem de inconsistências para teste
   # if (!tabela %in% RSIDRA::tabelas_SIDRA$tabela) {
   #   stop("A tabela informada não é válida", call. = FALSE)
   # }
-  # if (!missing(inicio) && !missing(fim)) {
-  #   periodo <- paste0(inicio, "-", fim)
-  # }
-  # if (length(nivel) != length(cod_nivel)) {
-  #   stop("Os argumentos nivel e cod_nivel devem ter o mesmo tamanho",
-  #        call. = FALSE)
-  # }
+  if (!missing(inicio) && !missing(fim)) {
+    periodo <- paste0(inicio, "-", fim)
+  }
+  if (length(nivel) != length(cod_nivel)) {
+    stop("Os argumentos nivel e cod_nivel devem ter o mesmo tamanho",
+         call. = FALSE)
+  }
   cod_nivel <- lapply(cod_nivel, paste, collapse = ",")
   area <- paste0("/n", nivel, "/", cod_nivel, collapse = "")
   if (length(classificador) != length(cod_cat)) {
