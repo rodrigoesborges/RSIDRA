@@ -17,8 +17,8 @@ SIDRA_classificacao <- function(tabela, consulta = FALSE) {
   clas <- lapply(ids_clas, pega_texto, pagina = resposta$conteudo)
 
   if (length(clas) >= 2) {
-    df_clas <- clas %>% matrix(ncol = 2, byrow = TRUE) %>%
-      as.data.frame() %>% `names<-`(c('codigo', "descrição"))
+    df_clas <- clas |> matrix(ncol = 2, byrow = TRUE) |>
+      as.data.frame() |> `names<-`(c('codigo', "descrição"))
   } else {
     warning("Não foram encontrados classificadores para esta tabela.")
     return(character(0))

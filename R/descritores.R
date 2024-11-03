@@ -17,9 +17,9 @@ descritores <- function(tabela) {
 
   conteudo <- httr::content(resp)
 
-  ids <- paste0("span#", conteudo %>%
-                  rvest::html_nodes("span") %>% rvest::html_attrs() %>%
-                  unlist() %>% unique() %>%
+  ids <- paste0("span#", conteudo |>
+                  rvest::html_nodes("span") |> rvest::html_attrs() |>
+                  unlist() |> unique() |>
                   grep(pattern = 'lbl', value = TRUE))
   structure(
     list(

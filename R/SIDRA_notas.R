@@ -12,5 +12,5 @@ SIDRA_notas <- function(tabela) {
 
   ids_nota <- grep(pattern = "Descricao", x = resposta$ids, value = TRUE)
 
-  lapply(ids_nota, pega_texto, pagina = resposta$conteudo) %>% paste(collapse = " ")
+  lapply(ids_nota, pega_texto, pagina = resposta$conteudo) |> paste(collapse = " ")
 }

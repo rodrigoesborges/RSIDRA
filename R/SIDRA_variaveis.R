@@ -14,8 +14,8 @@ SIDRA_variaveis <- function(tabela) {
 
   # variaveis
   ids_var <- grep(pattern = "Variaveis", x = resposta$ids, value = TRUE)[-1]
-  lapply(ids_var, pega_texto, pagina = resposta$conteudo) %>%
-    matrix(ncol = 2, byrow = TRUE) %>%
-    as.data.frame() %>% `names<-`(c('codigo', "descrição"))
+  lapply(ids_var, pega_texto, pagina = resposta$conteudo) |>
+    matrix(ncol = 2, byrow = TRUE) |>
+    as.data.frame() |> `names<-`(c('codigo', "descrição"))
 
 }

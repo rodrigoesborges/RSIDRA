@@ -14,5 +14,5 @@ SIDRA_periodo <- function(tabela) {
 
   periodos <- lapply(ids_periodo, pega_texto, pagina = resposta$conteudo)
 
-  stringr::str_split(periodos[[2]], ", ") %>% unlist()
+  stringr::str_split(periodos[[2]], ", ") |> unlist()
 }

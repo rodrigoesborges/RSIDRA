@@ -7,5 +7,5 @@
 
 pega_texto <- function(pagina, css) {
   requireNamespace("rvest")
-  pagina %>% rvest::html_nodes(css) %>% rvest::html_text()
+  pagina |> rvest::html_nodes(css) |> rvest::html_text()
 }

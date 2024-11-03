@@ -13,9 +13,9 @@ SIDRA_nivel <- function(tabela, consulta = FALSE) {
 
   ids_nivel <- grep(pattern = "Nivelterritorial", x = resposta$ids, value = TRUE)[-1]
 
-  df_nivel <- lapply(ids_nivel, pega_texto, pagina = resposta$conteudo) %>%
-    matrix(ncol = 2, byrow = TRUE) %>%
-    as.data.frame() %>% `names<-`(c('codigo', "descrição"))
+  df_nivel <- lapply(ids_nivel, pega_texto, pagina = resposta$conteudo) |>
+    matrix(ncol = 2, byrow = TRUE) |>
+    as.data.frame() |> `names<-`(c('codigo', "descrição"))
 
   if (consulta == FALSE) {
     return(unlist(df_nivel$codigo))
