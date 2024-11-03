@@ -1,7 +1,7 @@
 Package: RSIDRA
 Type: Package
 Title: Conexao do R com a SIDRA
-Version: 0.1.0
+Version: 0.1.1
 Depends:
     R (>= 2.10),
     rvest (>= 0.3)
